@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="bn"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল খিদমাহ সমাজকল্যাণ সংস্থা | Al Khidmah Social Welfare Organisation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif; /* Prioritize Hind Siliguri for Bengali text */
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x1080/a0aec0/ffffff?text=সহায়তার+হাত'); /* Placeholder in Bengali */
+            background-size: cover;
+            background-position: center;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            z-index: 50;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-item i {
+            transition: transform 0.3s ease;
+        }
+        .stat-item:hover i {
+            transform: scale(1.2);
+        }
+        /* Ensure Bengali font is applied to all relevant text */
+        h1, h2, h3, h4, h5, h6, p, a, span, div, button, label, input::placeholder, textarea::placeholder, li {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+        }
+        .english-text { /* Class for any text that should remain in English if necessary */
+             font-family: 'Inter', sans-serif;
+        }
+        .member-placeholder {
+            width: 8rem; /* 128px */
+            height: 8rem; /* 128px */
+            border-radius: 50%;
+            background-color: #e2e8f0; /* bg-gray-200 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem; /* mb-4 */
+            border: 4px solid #9ae6b4; /* border-green-200 */
+        }
+        .member-placeholder i {
+            font-size: 3rem; /* text-5xl approx */
+            color: #4a5568; /* text-gray-700 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="Al-khidmah logo.jpg" alt="আল খিদমাহ সমাজকল্যাণ সংস্থা লোগো" class="h-12 lg:h-14 object-contain">
+                <span class="text-xl lg:text-2xl font-bold text-green-700">আল খিদমাহ সমাজকল্যাণ সংস্থা</span>
+            </a>
+            
+            <button id="mobileMenuButton" class="lg:hidden text-green-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <ul class="hidden lg:flex space-x-6 items-center">
+                <li><a href="#home" class="text-gray-700 hover:text-green-600 font-medium">হোম</a></li>
+                <li class="dropdown">
+                    <a href="#about" class="text-gray-700 hover:text-green-600 font-medium flex items-center">আমাদের সম্পর্কে <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <ul class="dropdown-menu bg-white shadow-lg rounded-md mt-2 py-2 w-48">
+                        <li><a href="#mission" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">আমাদের লক্ষ্য</a></li>
+                        <li><a href="#team" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">আমাদের টিম</a></li>
+                        <li><a href="#history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">আমাদের ইতিহাস</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#activities" class="text-gray-700 hover:text-green-600 font-medium flex items-center">আমাদের কার্যক্রম <i class="fas fa-chevron-down ml-1 text-xs"></i></a>
+                    <ul class="dropdown-menu bg-white shadow-lg rounded-md mt-2 py-2 w-56">
+                        <li><a href="#tree-plantation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">বৃক্ষরোপণ</a></li>
+                        <li><a href="#poverty-alleviation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">দুস্থদের সহায়তা</a></li>
+                        <li><a href="#disaster-relief" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">দুর্যোগে ত্রাণ বিতরণ</a></li>
+                        <li><a href="#education-support" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">শিক্ষায় সহায়তা</a></li>
+                    </ul>
+                </li>
+                <li><a href="#gallery" class="text-gray-700 hover:text-green-600 font-medium">গ্যালারি</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-green-600 font-medium">যোগাযোগ</a></li>
+                <li><a href="#donate" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">অনুদান দিন</a></li>
+            </ul>
+        </nav>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white shadow-lg">
+            <ul class="flex flex-col py-2">
+                <li><a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">হোম</a></li>
+                <li class="mobile-dropdown">
+                    <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
+                        আমাদের সম্পর্কে <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
+                        <li><a href="#mission" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের লক্ষ্য</a></li>
+                        <li><a href="#team" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের টিম</a></li>
+                         <li><a href="#history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের ইতিহাস</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
+                        আমাদের কার্যক্রম <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
+                        <li><a href="#tree-plantation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">বৃক্ষরোপণ</a></li>
+                        <li><a href="#poverty-alleviation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুস্থদের সহায়তা</a></li>
+                        <li><a href="#disaster-relief" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুর্যোগে ত্রাণ বিতরণ</a></li>
+                        <li><a href="#education-support" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">শিক্ষায় সহায়তা</a></li>
+                    </ul>
+                </li>
+                <li><a href="#gallery" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">গ্যালারি</a></li>
+                <li><a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">যোগাযোগ</a></li>
+                <li><a href="#donate" class="block mx-4 my-2 text-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">অনুদান দিন</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero-bg text-white py-20 lg:py-40">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 scroll-reveal">মানবতার সেবায় আল খিদমাহ</h1>
+            <p class="text-lg lg:text-2xl mb-8 scroll-reveal" style="animation-delay: 0.2s;">মানবতার সেবা করা, একটি উন্নত আগামীকাল গড়া। আমরা সমাজকল্যাণ ও সামাজিক উন্নয়নে নিবেদিত।</p>
+            <a href="#donate" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 scroll-reveal" style="animation-delay: 0.4s;">আমাদের উদ্যোগে সহায়তা করুন</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-green-700 scroll-reveal">আমাদের সম্পর্কে জানুন</h2>
+                <p class="text-gray-600 mt-2 text-lg scroll-reveal">আল খিদমাহ সমাজকল্যাণ সংস্থা সম্পর্কে আরও জানুন।</p>
+            </div>
+            <div class="flex flex-wrap items-center -mx-4">
+                <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0 scroll-reveal">
+                    <img src="https://placehold.co/600x400/81c784/ffffff?text=আমাদের+টিম+কাজ+করছে" alt="আমাদের টিম" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                <div id="mission" class="w-full lg:w-1/2 px-4 scroll-reveal" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">আমাদের লক্ষ্য ও উদ্দেশ্য</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">আল খিদমাহ সমাজকল্যাণ সংস্থা বিভিন্ন সামাজিক উদ্যোগের মাধ্যমে সুবিধাবঞ্চিত সম্প্রদায়ের উন্নয়নে প্রতিশ্রুতিবদ্ধ। আমরা এমন একটি সমাজের স্বপ্ন দেখি যেখানে প্রত্যেকে মর্যাদার সাথে জীবনযাপন করতে এবং তাদের সম্ভাবনার পূর্ণ বিকাশ ঘটাতে পারবে।</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">আমাদের মূলমন্ত্র হলো সহানুভূতি, সততা এবং নিষ্ঠা। আমরা মানুষের সবচেয়ে জরুরি চাহিদাগুলো পূরণ করে তাদের জীবনে ইতিবাচক পরিবর্তন আনার চেষ্টা করি।</p>
+                    <a href="#contact" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">যোগাযোগ করুন</a>
+                </div>
+            </div>
+             <div id="history" class="mt-16 lg:mt-24 scroll-reveal">
+                <h3 class="text-2xl lg:text-3xl font-bold text-green-700 mb-6 text-center">আমাদের ইতিহাস</h3>
+                <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">আল খিদমাহ সমাজকল্যাণ সংস্থা ১০ মে ২০২৪ সালে প্রতিষ্ঠিত হয়েছিল। প্রতিষ্ঠার পর থেকে আমরা সমাজের কল্যাণে বিভিন্ন কর্মসূচি গ্রহণ করে আসছি। আমাদের লক্ষ্য হলো একটি ক্ষুধামুক্ত, দারিদ্র্যমুক্ত এবং শিক্ষিত সমাজ গঠন করা।</p>
+                </div>
+        </div>
+    </section>
+
+    <section id="activities" class="py-16 lg:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-green-700 scroll-reveal">আমাদের কার্যক্রম</h2>
+                <p class="text-gray-600 mt-2 text-lg scroll-reveal">সমাজের উন্নয়নে আমরা যে বিভিন্ন কার্যক্রম পরিচালনা করি তা দেখুন।</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div id="tree-plantation" class="bg-white p-6 rounded-xl shadow-lg card-hover-effect scroll-reveal">
+                    <div class="text-green-500 mb-4 text-center">
+                        <i class="fas fa-tree text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">বৃক্ষরোপণ</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">জলবায়ু পরিবর্তনের প্রভাব মোকাবেলা করতে এবং ভবিষ্যৎ প্রজন্মের জন্য একটি সবুজ পরিবেশ নিশ্চিত করতে আমরা সক্রিয়ভাবে বৃক্ষরোপণ অভিযান পরিচালনা করি।</p>
+                </div>
+                <div id="poverty-alleviation" class="bg-white p-6 rounded-xl shadow-lg card-hover-effect scroll-reveal" style="animation-delay: 0.1s;">
+                    <div class="text-green-500 mb-4 text-center">
+                        <i class="fas fa-hands-helping text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">দুস্থদের সহায়তা</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">সংকটময় পরিস্থিতিতে থাকা ব্যক্তি ও পরিবারকে আর্থিক সহায়তা এবং প্রয়োজনীয় উপকরণসহ অত্যাবশ্যকীয় সহযোগিতা প্রদান করা।</p>
+                </div>
+                <div id="disaster-relief" class="bg-white p-6 rounded-xl shadow-lg card-hover-effect scroll-reveal" style="animation-delay: 0.2s;">
+                    <div class="text-green-500 mb-4 text-center">
+                        <i class="fas fa-house-flood-water text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">দুর্যোগে ত্রাণ বিতরণ</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">বন্যার মতো প্রাকৃতিক দুর্যোগের সময় খাদ্য, পানি এবং আশ্রয় বিতরণ করে ক্ষতিগ্রস্ত সম্প্রদায়ের কাছে সময়মত সাহায্য পৌঁছানো নিশ্চিত করা।</p>
+                </div>
+                <div id="education-support" class="bg-white p-6 rounded-xl shadow-lg card-hover-effect scroll-reveal" style="animation-delay: 0.3s;">
+                    <div class="text-green-500 mb-4 text-center">
+                        <i class="fas fa-book-reader text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">শিক্ষায় সহায়তা</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">সুবিধাবঞ্চিত শিক্ষার্থীদের পড়াশোনা চালিয়ে যাওয়ার জন্য শিক্ষা উপকরণ, বৃত্তি এবং দিকনির্দেশনা দিয়ে সহায়তা করা।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="team" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-green-700 scroll-reveal">আমাদের নিবেদিতপ্রাণ পরিচালনা পর্ষদ</h2>
+                <p class="text-gray-600 mt-2 text-lg scroll-reveal">আমাদের কাজের পেছনের উদ্যমী ব্যক্তিদের সাথে পরিচিত হন।</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">মাওলানা মাসুম আহমেদ</h4>
+                    <p class="text-green-600">সভাপতি</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.05s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">শিপন আহমেদ</h4>
+                    <p class="text-green-600">সহ-সভাপতি</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.1s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">তুহিন মাহমুদ</h4>
+                    <p class="text-green-600">সাধারণ সম্পাদক</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.15s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">রায়হান আহমদ</h4>
+                    <p class="text-green-600">সহ-সাধারণ সম্পাদক</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.2s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">মাওলানা আমিনুল ইসলাম</h4>
+                    <p class="text-green-600">সাংগঠনিক সম্পাদক</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.25s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">ইমন আহমেদ</h4>
+                    <p class="text-green-600">কোষাধ্যক্ষ</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.3s;">
+                    <div class="member-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800">সাইফুল ইসলাম</h4>
+                    <p class="text-green-600">দপ্তর সম্পাদক</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-green-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold scroll-reveal">আমাদের কার্যক্রমের প্রভাব</h2>
+                <p class="text-green-200 mt-2 text-lg scroll-reveal">আমাদের নিষ্ঠা এবং আপনাদের সহায়তার প্রতিফলন।</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="stat-item p-6 bg-green-600 rounded-lg shadow-md scroll-reveal">
+                    <i class="fas fa-seedling text-5xl text-yellow-400 mb-3"></i>
+                    <h3 class="text-4xl font-bold">১০,০০০+</h3>
+                    <p class="text-green-100">রোপিত চারাগাছ</p>
+                </div>
+                <div class="stat-item p-6 bg-green-600 rounded-lg shadow-md scroll-reveal" style="animation-delay: 0.1s;">
+                    <i class="fas fa-users text-5xl text-yellow-400 mb-3"></i>
+                    <h3 class="text-4xl font-bold">৫,০০০+</h3>
+                    <p class="text-green-100">সহায়তাপ্রাপ্ত মানুষ</p>
+                </div>
+                <div class="stat-item p-6 bg-green-600 rounded-lg shadow-md scroll-reveal" style="animation-delay: 0.2s;">
+                    <i class="fas fa-box-open text-5xl text-yellow-400 mb-3"></i>
+                    <h3 class="text-4xl font-bold">২,০০০+</h3>
+                    <p class="text-green-100">ত্রাণ সামগ্রী বিতরণ</p>
+                </div>
+                <div class="stat-item p-6 bg-green-600 rounded-lg shadow-md scroll-reveal" style="animation-delay: 0.3s;">
+                    <i class="fas fa-graduation-cap text-5xl text-yellow-400 mb-3"></i>
+                    <h3 class="text-4xl font-bold">৫০০+</h3>
+                    <p class="text-green-100">শিক্ষার্থী উপকৃত</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-16 lg:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-green-700 scroll-reveal">আমাদের কার্যক্রমের চিত্রশালা</h2>
+                <p class="text-gray-600 mt-2 text-lg scroll-reveal">আমাদের কার্যক্রম এবং তার প্রভাবের কিছু মুহূর্ত।</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="scroll-reveal"><img src="https://placehold.co/400x300/81c784/ffffff?text=কার্যক্রম+১" alt="গ্যালারি চিত্র ১" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal" style="animation-delay: 0.1s;"><img src="https://placehold.co/400x300/66bb6a/ffffff?text=কার্যক্রম+২" alt="গ্যালারি চিত্র ২" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal" style="animation-delay: 0.2s;"><img src="https://placehold.co/400x300/4caf50/ffffff?text=কার্যক্রম+৩" alt="গ্যালারি চিত্র ৩" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal" style="animation-delay: 0.3s;"><img src="https://placehold.co/400x300/388e3c/ffffff?text=কার্যক্রম+৪" alt="গ্যালারি চিত্র ৪" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal md:col-start-2 lg:col-start-auto"><img src="https://placehold.co/400x300/2e7d32/ffffff?text=কার্যক্রম+৫" alt="গ্যালারি চিত্র ৫" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal"><img src="https://placehold.co/400x300/1b5e20/ffffff?text=কার্যক্রম+৬" alt="গ্যালারি চিত্র ৬" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal"><img src="https://placehold.co/400x300/a5d6a7/ffffff?text=কার্যক্রম+৭" alt="গ্যালারি চিত্র ৭" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+                <div class="scroll-reveal"><img src="https://placehold.co/400x300/c8e6c9/ffffff?text=কার্যক্রম+৮" alt="গ্যালারি চিত্র ৮" class="rounded-lg shadow-md w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donate" class="py-16 lg:py-24 bg-green-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-green-800 mb-6 scroll-reveal">সহযোগিতার হাত বাড়িয়ে দিন</h2>
+            <p class="text-gray-700 text-lg lg:text-xl mb-8 max-w-2xl mx-auto scroll-reveal">আপনার অনুদান অনেকের জীবনে গুরুত্বপূর্ণ পরিবর্তন আনতে পারে। একটি উন্নত সমাজ গঠনে আমাদের সাথে যোগ দিন। আপনার সামান্য অবদানও অনেক মূল্যবান!</p>
+            <div class="scroll-reveal">
+                <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 px-10 rounded-lg text-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105 inline-block mr-4">এখনই অনুদান দিন</a>
+                <a href="#contact" class="bg-transparent hover:bg-green-600 text-green-700 hover:text-white border-2 border-green-600 font-bold py-4 px-10 rounded-lg text-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105 inline-block">স্বেচ্ছাসেবক হন</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-green-700 scroll-reveal">যোগাযোগ করুন</h2>
+                <p class="text-gray-600 mt-2 text-lg scroll-reveal">আমরা আপনার কাছ থেকে শুনতে আগ্রহী। যেকোনো জিজ্ঞাসা বা সহযোগিতার জন্য যোগাযোগ করুন।</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <form action="#" method="POST" class="bg-gray-50 p-8 rounded-xl shadow-xl space-y-6 scroll-reveal">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">পুরো নাম</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="আপনার নাম">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">ইমেইল ঠিকানা</label>
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">বিষয়</label>
+                        <input type="text" name="subject" id="subject" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="আপনার বার্তার বিষয়">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">বার্তা</label>
+                        <textarea name="message" id="message" rows="5" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="আপনার বার্তা এখানে লিখুন..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">বার্তা পাঠান</button>
+                    </div>
+                </form>
+                <div class="mt-12 text-center scroll-reveal">
+                    <p class="text-lg text-gray-700 mb-2">অথবা সরাসরি আমাদের সাথে যোগাযোগ করুন:</p>
+                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2 text-green-600"></i>পশ্চিম গ্রাম, ওসমানীনগর, সিলেট</p>
+                    <p class="text-gray-600"><i class="fas fa-phone-alt mr-2 text-green-600"></i>(+৮৮০) ১২৩-৪৫৬৭৮৯০ (উদাহরণ)</p>
+                    <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-green-600"></i>info@alkhidmah.org (উদাহরণ)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">আল খিদমাহ সমাজকল্যাণ সংস্থা</h3>
+                    <p class="text-sm leading-relaxed">সহানুভূতিশীল কার্যক্রম এবং টেকসই উন্নয়নের মাধ্যমে সম্প্রদায়ের মধ্যে ইতিবাচক পরিবর্তন আনা এবং মানবতার সেবায় নিবেদিত।</p>
+                     <p class="text-sm mt-2">স্থাপিতঃ ১০ মে ২০২৪ খ্রিঃ</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-green-400 transition duration-150">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#activities" class="hover:text-green-400 transition duration-150">আমাদের কার্যক্রম</a></li>
+                        <li><a href="#gallery" class="hover:text-green-400 transition duration-150">গ্যালারি</a></li>
+                        <li><a href="#donate" class="hover:text-green-400 transition duration-150">অনুদান দিন</a></li>
+                        <li><a href="#contact" class="hover:text-green-400 transition duration-150">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">আমাদের সাথে যুক্ত হোন</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook পেজ" class="text-gray-300 hover:text-green-400 transition duration-150 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter প্রোফাইল" class="text-gray-300 hover:text-green-400 transition duration-150 text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram প্রোফাইল" class="text-gray-300 hover:text-green-400 transition duration-150 text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn প্রোফাইল" class="text-gray-300 hover:text-green-400 transition duration-150 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="mt-4 text-sm">আপডেট পেতে সোশ্যাল মিডিয়ায় আমাদের অনুসরণ করুন।</p>
+                </div>
+                 <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">নিউজলেটার</h4>
+                    <p class="text-sm mb-3">আমাদের সর্বশেষ কার্যক্রম এবং প্রভাবের গল্প সম্পর্কে আপডেট পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন।</p>
+                    <form action="#" class="flex">
+                        <input type="email" placeholder="আপনার ইমেইল" class="w-full px-3 py-2.5 rounded-l-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" style="font-family: 'Inter', sans-serif;"> <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-r-lg font-semibold text-sm">সাবস্ক্রাইব</button>
+                    </form>
+                </div>
+            </div>
+             <div class="text-center text-sm mb-8">
+                <p><i class="fas fa-map-marker-alt mr-1 text-green-400"></i> ঠিকানা: পশ্চিম গ্রাম, ওসমানীনগর, সিলেট।</p>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="text-center text-sm">
+                <p>&copy; <span id="currentYear"></span> আল খিদমাহ সমাজকল্যাণ সংস্থা। সর্বস্বত্ব সংরক্ষিত।</p>
+                <p class="mt-1">এআই এর সাহায্যে <i class="fas fa-heart text-red-500"></i> দিয়ে ডিজাইন করা হয়েছে। উদাহরণ কনটেন্ট ব্যবহৃত হয়েছে।</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="উপরে যান"
+        class="hidden fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 z-50">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Mobile Dropdown Toggle
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown > button');
+        mobileDropdowns.forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownMenu = button.nextElementSibling;
+                dropdownMenu.classList.toggle('hidden');
+                const icon = button.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a[href^="#"]');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                 mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                mobileMenuButton.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only prevent default for actual internal links, not for "#" or empty href
+                if (href && href !== "#" && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+            );
+        };
+        const displayScrollElement = (element) => {
+            element.classList.add('visible');
+        };
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.05)) { // Adjust the divisor for when the animation triggers
+                    displayScrollElement(el);
+                }
+            });
+        };
+        window.addEventListener('scroll', () => {
+            handleScrollAnimation();
+        });
+        
+        // Trigger animation for elements already in view on load & Set Current Year
+        document.addEventListener('DOMContentLoaded', () => {
+            handleScrollAnimation();
+            document.getElementById('currentYear').textContent = new Date().toLocaleDateString('bn-BD', { year: 'numeric' }); // Bengali year
+        });
+
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+                scrollToTopBtn.classList.add('opacity-100');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+                scrollToTopBtn.classList.remove('opacity-100');
+            }
+        };
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+    </script>
+
+</body>
+</html>
