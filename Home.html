@@ -6,81 +6,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif; /* Prioritize Hind Siliguri for Bengali text */
-            scroll-behavior: smooth;
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x1080/a0aec0/ffffff?text=সহায়তার+হাত'); /* Placeholder in Bengali */
-            background-size: cover;
-            background-position: center;
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            z-index: 50;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .card-hover-effect {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .stat-item i {
-            transition: transform 0.3s ease;
-        }
-        .stat-item:hover i {
-            transform: scale(1.2);
-        }
-        /* Ensure Bengali font is applied to all relevant text */
-        h1, h2, h3, h4, h5, h6, p, a, span, div, button, label, input::placeholder, textarea::placeholder, li {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif;
-        }
-        .english-text { /* Class for any text that should remain in English if necessary */
-             font-family: 'Inter', sans-serif;
-        }
-        .member-placeholder {
-            width: 8rem; /* 128px */
-            height: 8rem; /* 128px */
-            border-radius: 50%;
-            background-color: #e2e8f0; /* bg-gray-200 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1rem; /* mb-4 */
-            border: 4px solid #9ae6b4; /* border-green-200 */
-        }
-        .member-placeholder i {
-            font-size: 3rem; /* text-5xl approx */
-            color: #4a5568; /* text-gray-700 */
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="shadow-md sticky top-0 z-50 glass-bg">
         <nav class="container mx-auto px-4 lg:px-8 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3">
                 <img src="Al-khidmah logo.jpg" alt="আল খিদমাহ সমাজকল্যাণ সংস্থা লোগো" class="h-12 lg:h-14 object-contain">
@@ -115,36 +45,38 @@
                 <li><a href="#donate" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">অনুদান দিন</a></li>
             </ul>
         </nav>
-        <div id="mobileMenu" class="hidden lg:hidden bg-white shadow-lg">
-            <ul class="flex flex-col py-2">
-                <li><a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">হোম</a></li>
-                <li class="mobile-dropdown">
-                    <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
-                        আমাদের সম্পর্কে <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </button>
-                    <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
-                        <li><a href="#mission" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের লক্ষ্য</a></li>
-                        <li><a href="#team" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের টিম</a></li>
-                         <li><a href="#history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের ইতিহাস</a></li>
-                    </ul>
-                </li>
-                <li class="mobile-dropdown">
-                    <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
-                        আমাদের কার্যক্রম <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </button>
-                    <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
-                        <li><a href="#tree-plantation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">বৃক্ষরোপণ</a></li>
-                        <li><a href="#poverty-alleviation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুস্থদের সহায়তা</a></li>
-                        <li><a href="#disaster-relief" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুর্যোগে ত্রাণ বিতরণ</a></li>
-                        <li><a href="#education-support" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">শিক্ষায় সহায়তা</a></li>
-                    </ul>
-                </li>
-                <li><a href="#gallery" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">গ্যালারি</a></li>
-                <li><a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">যোগাযোগ</a></li>
-                <li><a href="#donate" class="block mx-4 my-2 text-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">অনুদান দিন</a></li>
-            </ul>
-        </div>
     </header>
+
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+    <div id="mobileMenu" class="lg:hidden glass-bg shadow-lg">
+        <ul class="flex flex-col py-2">
+            <li><a href="#home" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">হোম</a></li>
+            <li class="mobile-dropdown">
+                <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
+                    আমাদের সম্পর্কে <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
+                    <li><a href="#mission" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের লক্ষ্য</a></li>
+                    <li><a href="#team" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের টিম</a></li>
+                        <li><a href="#history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">আমাদের ইতিহাস</a></li>
+                </ul>
+            </li>
+            <li class="mobile-dropdown">
+                <button class="w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium flex justify-between items-center">
+                    আমাদের কার্যক্রম <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <ul class="mobile-dropdown-menu hidden bg-gray-50 pl-4">
+                    <li><a href="#tree-plantation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">বৃক্ষরোপণ</a></li>
+                    <li><a href="#poverty-alleviation" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুস্থদের সহায়তা</a></li>
+                    <li><a href="#disaster-relief" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">দুর্যোগে ত্রাণ বিতরণ</a></li>
+                    <li><a href="#education-support" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100 hover:text-green-600">শিক্ষায় সহায়তা</a></li>
+                </ul>
+            </li>
+            <li><a href="#gallery" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">গ্যালারি</a></li>
+            <li><a href="#contact" class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium">যোগাযোগ</a></li>
+            <li><a href="#donate" class="block mx-4 my-2 text-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">অনুদান দিন</a></li>
+        </ul>
+    </div>
 
     <section id="home" class="hero-bg text-white py-20 lg:py-40">
         <div class="container mx-auto px-4 text-center">
@@ -224,56 +156,84 @@
                 <p class="text-gray-600 mt-2 text-lg scroll-reveal">আমাদের কাজের পেছনের উদ্যমী ব্যক্তিদের সাথে পরিচিত হন।</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 1 -->
+                <div class="member-card scroll-reveal">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">মাওলানা মাসুম আহমেদ</h4>
+                    <p class="member-title">সভাপতি</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">মাওলানা মাসুম আহমেদ</h4>
-                    <p class="text-green-600">সভাপতি</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.05s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 2 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.05s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">শিপন আহমেদ</h4>
+                    <p class="member-title">সহ-সভাপতি</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">শিপন আহমেদ</h4>
-                    <p class="text-green-600">সহ-সভাপতি</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.1s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 3 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.1s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">তুহিন মাহমুদ</h4>
+                    <p class="member-title">সাধারণ সম্পাদক</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">তুহিন মাহমুদ</h4>
-                    <p class="text-green-600">সাধারণ সম্পাদক</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.15s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 4 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.15s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">রায়হান আহমদ</h4>
+                    <p class="member-title">সহ-সাধারণ সম্পাদক</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">রায়হান আহমদ</h4>
-                    <p class="text-green-600">সহ-সাধারণ সম্পাদক</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.2s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 5 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.2s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">মাওলানা আমিনুল ইসলাম</h4>
+                    <p class="member-title">সাংগঠনিক সম্পাদক</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">মাওলানা আমিনুল ইসলাম</h4>
-                    <p class="text-green-600">সাংগঠনিক সম্পাদক</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.25s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 6 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.25s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">ইমন আহমেদ</h4>
+                    <p class="member-title">কোষাধ্যক্ষ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">ইমন আহমেদ</h4>
-                    <p class="text-green-600">কোষাধ্যক্ষ</p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center card-hover-effect scroll-reveal" style="animation-delay: 0.3s;">
-                    <div class="member-placeholder">
-                        <i class="fas fa-user"></i>
+                <!-- Member 7 -->
+                <div class="member-card scroll-reveal" style="animation-delay: 0.3s;">
+                    <div class="member-avatar"><i class="fas fa-user"></i></div>
+                    <h4 class="member-name">সাইফুল ইসলাম</h4>
+                    <p class="member-title">দপ্তর সম্পাদক</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <h4 class="text-xl font-semibold text-gray-800">সাইফুল ইসলাম</h4>
-                    <p class="text-green-600">দপ্তর সম্পাদক</p>
                 </div>
-                </div>
+            </div>
         </div>
     </section>
 
@@ -430,105 +390,17 @@
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-[1000] hidden">
+        <button id="lightbox-close" class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-gray-300">&times;</button>
+        <button id="lightbox-prev" class="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-300">&#10094;</button>
+        <div class="relative">
+            <img id="lightbox-img" src="" alt="গ্যালারি চিত্র" class="max-w-[90vw] max-h-[80vh] object-contain rounded-lg">
+            <div id="lightbox-caption" class="text-center text-white mt-2 text-lg"></div>
+        </div>
+        <button id="lightbox-next" class="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl font-bold hover:text-gray-300">&#10095;</button>
+    </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenuButton.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
-
-        // Mobile Dropdown Toggle
-        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown > button');
-        mobileDropdowns.forEach(button => {
-            button.addEventListener('click', () => {
-                const dropdownMenu = button.nextElementSibling;
-                dropdownMenu.classList.toggle('hidden');
-                const icon = button.querySelector('i');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            });
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a[href^="#"]');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                 mobileMenuButton.querySelector('i').classList.remove('fa-times');
-                mobileMenuButton.querySelector('i').classList.add('fa-bars');
-            });
-        });
-
-
-        // Smooth Scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                // Only prevent default for actual internal links, not for "#" or empty href
-                if (href && href !== "#" && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Scroll Reveal Animation
-        const scrollElements = document.querySelectorAll('.scroll-reveal');
-        const elementInView = (el, dividend = 1) => {
-            const elementTop = el.getBoundingClientRect().top;
-            return (
-                elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-            );
-        };
-        const displayScrollElement = (element) => {
-            element.classList.add('visible');
-        };
-        const handleScrollAnimation = () => {
-            scrollElements.forEach((el) => {
-                if (elementInView(el, 1.05)) { // Adjust the divisor for when the animation triggers
-                    displayScrollElement(el);
-                }
-            });
-        };
-        window.addEventListener('scroll', () => {
-            handleScrollAnimation();
-        });
-        
-        // Trigger animation for elements already in view on load & Set Current Year
-        document.addEventListener('DOMContentLoaded', () => {
-            handleScrollAnimation();
-            document.getElementById('currentYear').textContent = new Date().toLocaleDateString('bn-BD', { year: 'numeric' }); // Bengali year
-        });
-
-
-        // Scroll to Top Button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        window.onscroll = function () {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                scrollToTopBtn.classList.remove('hidden');
-                scrollToTopBtn.classList.add('opacity-100');
-            } else {
-                scrollToTopBtn.classList.add('hidden');
-                scrollToTopBtn.classList.remove('opacity-100');
-            }
-        };
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-    </script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
